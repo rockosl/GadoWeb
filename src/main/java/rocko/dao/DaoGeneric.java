@@ -55,15 +55,14 @@ public class DaoGeneric<E> {
 		em.close();
 
 	}
-	
-	
 
+	@SuppressWarnings("unchecked")
 	public List<E> getListEntity(Class<E> entidade) {
 		EntityManager em = JPAUtil.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		
-		List<E> retorno = em.createQuery("from " +entidade.getClass().getName()).getResultList();
+		List<E> retorno = em.createQuery("from " + entidade.getName()).getResultList();
 		
 		et.commit();
 		em.close();

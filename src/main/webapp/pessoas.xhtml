@@ -6,6 +6,7 @@
 
 <h:head>
 	<title>GadoWeb</title>
+
 </h:head>
 
 <h:body>
@@ -32,20 +33,37 @@
 		<br />
 
 		<h:outputLabel value="Nascimento: " />
-		<p:inputText id="campoDataNascimento" value="#{pessoaBean.pessoa.dataNascimento}"></p:inputText>
+		<p:inputText id="campoDataNascimento"
+			value="#{pessoaBean.pessoa.dataNascimento}"></p:inputText>
 		<br />
 
-		<p:commandButton value="Novo" action="#{pessoaBean.novo}"></p:commandButton>
-		<p:commandButton value="Salvar" action="#{pessoaBean.salvar}"></p:commandButton>
-		<p:commandButton value="Delete" action="#{pessoaBean.delete}"></p:commandButton>
-		<p:commandButton value="Listar" action="#{pessoaBean.listarPessoas}"></p:commandButton>
+		<h:commandButton value="Novo" action="#{pessoaBean.novo}" />
+		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}" />
+		<h:commandButton value="Delete" action="#{pessoaBean.delete}" />
+		<h:commandButton value="Listar" action="#{pessoaBean.listarPessoas}" />
+
 		<br />
 
-		<p:dataTable id="tablePessoas" value="#{pessoaBean.pessoas}" var="p">
-			<p:column value="#{p.id}" />
-			<p:column value="#{p.nome}" />
-			<p:column value="#{p.sobrenome}" />
-			<p:column value="#{p.idade}" />
+		<p:dataTable value="#{pessoaBean.pessoas}" var="p">
+			<p:column headerText="Id">
+				<h:outputText value="#{p.id}" />
+			</p:column>
+
+			<p:column headerText="Nome">
+				<h:outputText value="#{p.nome}" />
+			</p:column>
+
+			<p:column headerText="Sobrenome">
+				<h:outputText value="#{p.sobrenome}" />
+			</p:column>
+
+			<p:column headerText="Idade">
+				<h:outputText value="#{p.idade}" />
+			</p:column>
+
+			<p:column headerText="Nascimento">
+				<h:outputText value="#{p.dataNascimento}" />
+			</p:column>
 		</p:dataTable>
 
 	</h:form>
