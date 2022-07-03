@@ -35,7 +35,7 @@ public class PessoaBean {
 		return "";
 	}
 	
-	public String listarPessoas() {
+	public String listarPessoas() { 
 		pessoas = daoGeneric.getListEntity(Pessoa.class);
 		return "";
 	}
