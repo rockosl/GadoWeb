@@ -20,8 +20,6 @@ public class GadoTest {
 		em.close();
 		emf.close();
 		
-		System.out.println("teste para commit github");
-		
 	}
 
 }
