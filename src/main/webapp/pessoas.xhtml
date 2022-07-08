@@ -22,70 +22,79 @@
 		</div>
 	</header>
 
-	<div class="principal">
-		<div id="dados">
-			<h:panelGroup>
-				<br/>
-				<h:outputLabel value="ID:" />
-				<p:inputText value="#{pessoaBean.pessoa.id}" disabled="true" style="float: right"/>
-				<br/>
-				<br/>
-				<h:outputLabel value="Nome: " />
-				<p:inputText id="nome" value="#{pessoaBean.pessoa.nome}" style="float: right"/>
-				<br/>
-				<br/>
-				<h:outputLabel value="Sobrenome: " />
-				<p:inputText id="sobrenome" value="#{pessoaBean.pessoa.sobrenome}" style="float: right"/>
-				<br/>
-				<br/>
-				<h:outputLabel value="Idade: " />
-				<p:inputText id="idade" value="#{pessoaBean.pessoa.idade}" style="float: right"/>
-				<br/>
-				<br/>
-				<h:outputLabel value="Nascimento: " />
-				<p:inputText id="nasc" value="#{pessoaBean.pessoa.dataNascimento}" style="float: right"/>
-			</h:panelGroup>
-		</div>
-	</div>
+	<h:form>
 
-	<div id="botao">
-		<h:commandButton value="Novo" action="#{pessoaBean.novo}"
-			style="width: 90px; height: 50px; margin:1px" />
-		<h:commandButton value="Salvar" action="#{pessoaBean.salvar}"
-			style="width: 90px; height: 50px; margin:1px" />
-		<h:commandButton value="Delete" action="#{pessoaBean.delete}"
-			style="width: 90px; height: 50px; margin:1px" />
-		<h:commandButton value="Listar" action="#{pessoaBean.listarPessoas}"
-			style="width: 90px; height: 50px; margin:1px" />
-	</div>
+		<div class="principal">
+			<div id="dados">
+				<br />
+				<h:outputLabel value="ID:" />
+				<p:inputText value="#{pessoaBean.pessoa.id}" style="float: right" />
+				<br /> <br />
+				<h:outputLabel value="Nome: " />
+				<p:inputText id="nome" value="#{pessoaBean.pessoa.nome}"
+					style="float: right" />
+				<br /> <br />
+				<h:outputLabel value="Sobrenome: " />
+				<p:inputText id="sobrenome" value="#{pessoaBean.pessoa.sobrenome}"
+					style="float: right" />
+				<br /> <br />
+				<h:outputLabel value="Idade: " />
+				<p:inputText id="idade" value="#{pessoaBean.pessoa.idade}"
+					style="float: right" />
+				<br /> <br />
+				<h:outputLabel value="Nascimento: " />
+				<p:inputText id="nasc" value="#{pessoaBean.pessoa.dataNascimento}"
+					style="float: right" />
+			</div>
+		</div>
+
+		<div id="botao">
+			<h:commandButton process="@this" value="Novo"
+				action="#{pessoaBean.novo}" update="tabela"
+				style="width: 90px; height: 50px; margin:1px" />
+			<h:commandButton process="@this" value="Salvar"
+				action="#{pessoaBean.salvar}" update="tabela"
+				style="width: 90px; height: 50px; margin:1px" />
+			<h:commandButton process="@this" value="Deletar"
+				action="#{pessoaBean.delete}" update="tabela"
+				style="width: 90px; height: 50px; margin:1px" />
+			<h:commandButton process="@this" value="Listar"
+				action="#{pessoaBean.listarPessoas}" update="tabela"
+				style="width: 90px; height: 50px; margin:1px" />
+		</div>
+
+	</h:form>
 
 	<br />
 
-	<p:dataTable id="tabela" value="#{pessoaBean.pessoas}" var="p">
-		<p:column headerText="Id">
-			<h:outputText value="#{p.id}" />
-		</p:column>
+	<h:form>
 
-		<p:column headerText="Nome">
-			<h:outputText value="#{p.nome}" />
-		</p:column>
+		<p:dataTable id="tabela" value="#{pessoaBean.pessoas}" var="p">
+			<p:column headerText="Id">
+				<h:outputText value="#{p.id}" />
+				<h:commandButton process="@this" value="X"
+					action="#{pessoaBean.delete}" update="tabela" />
+			</p:column>
 
-		<p:column headerText="Sobrenome">
-			<h:outputText value="#{p.sobrenome}" />
-		</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{p.nome}" />
+			</p:column>
 
-		<p:column headerText="Idade">
-			<h:outputText value="#{p.idade}" />
-		</p:column>
+			<p:column headerText="Sobrenome">
+				<h:outputText value="#{p.sobrenome}" />
+			</p:column>
 
-		<p:column headerText="Nascimento">
-			<h:outputText value="#{p.dataNascimento}" />
-		</p:column>
-	</p:dataTable>
+			<p:column headerText="Idade">
+				<h:outputText value="#{p.idade}" />
+			</p:column>
 
-	<h:outputText>TESTE PARA COMMIT</h:outputText>
+			<p:column headerText="Nascimento">
+				<h:outputText value="#{p.dataNascimento}" />
+			</p:column>
+		</p:dataTable>
 
-
+	</h:form>
+	
 </h:body>
 
 </html>
