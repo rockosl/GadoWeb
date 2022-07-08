@@ -1,0 +1,33 @@
+@charset "ISO-8859-1";
+
+* {
+	font-family: sans-serif;
+}
+
+header {
+	background-color: gray;
+	height: 80px;
+	margin: 20px;
+}
+
+.container {
+	width: 960px;
+}
+
+#botao {
+	margin-left: 20px;
+}
+
+#dados {
+	padding: 10px;
+	font-weight: bold;
+	font-size: x-large;
+	background-color: lightgray;
+	width: 370px;
+	height: 320px;
+	margin-left: 20px;
+}
+
+#tabela{
+	margin: 20px;
+}
